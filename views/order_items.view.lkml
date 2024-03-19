@@ -38,15 +38,34 @@ view: order_items {
   dimension: is_returned_or_cancelled {
     type: string
     sql: CASE
-              WHEN ${status} IN ('Returned','Cancelled') THEN 'Returned Or Cancelled
+              WHEN ${status} IN ('Returned','Cancelled') THEN 'Returned Or Cancelled'
               ELSE 'In Progress or Completed'
               END;;
   }
 
+
+dimension: validation_status {
+  group_label: "Status Fields"
+  drill_fields: [status]
+  case: {
+    when: { sql:${status} in ('Cancelled','Returned');; label:"Invalid" }
+    when: { sql:${status} in ('Shipped','Complete','Processing');; label:"Valid" }
+    else: "Unknown"
+  }
+}
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
   }
+
+  dimension: sale_price_tier {
+    type: bin
+    bins: [10,20,50,100]
+    style: relational
+    sql: ${sale_price} ;;
+  }
+
+
   dimension_group: shipped {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
