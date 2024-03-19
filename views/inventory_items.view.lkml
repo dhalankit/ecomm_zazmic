@@ -83,7 +83,7 @@ view: inventory_items {
 
   measure: total_cost {
     type: sum
-    sql: ${cost} ;;
+    sql: coalesce(${cost},0) ;;
     label: "Total Cost"
   }
 }

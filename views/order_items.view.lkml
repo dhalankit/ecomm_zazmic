@@ -67,7 +67,7 @@ view: order_items {
 
   measure: total_sale_price {
     type: sum
-    sql: ${sale_price} ;; ##actual SQL to be aggregated. Here sale_price will be wrapped in SUM() function.
+    sql: coalesce(${sale_price},0) ;; ##actual SQL to be aggregated. Here sale_price will be wrapped in SUM() function.
     value_format_name: usd
   }
 

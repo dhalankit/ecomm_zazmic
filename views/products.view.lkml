@@ -28,6 +28,7 @@ view: products {
     sql: ${TABLE}.distribution_center_id ;;
   }
   dimension: name {
+    description: "Product Name"
     type: string
     sql: ${TABLE}.name ;;
   }
@@ -36,10 +37,12 @@ view: products {
     sql: ${TABLE}.retail_price ;;
   }
   dimension: sku {
+    description: "Product SKU"
     type: string
     sql: ${TABLE}.sku ;;
   }
   measure: count {
+    label: "Count distinct Product"
     type: count
     drill_fields: [id, name, order_items.count, inventory_items.count]
   }
