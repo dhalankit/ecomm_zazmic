@@ -75,6 +75,18 @@ dimension: validation_status {
     type: string
     sql: ${TABLE}.status ;;
   }
+  dimension: status_ {
+    sql: ${TABLE}.status ;;
+    html: {% if value == 'Shipped' or value == 'Complete' %}
+      <p>✅ {{value}}</p>
+    {% elsif value == 'Processing' %}
+      <p>⏳ {{value}}</p>
+    {% else %}
+      <p>❌ {{value}}</p>
+    {% endif %}
+   ;;
+  }
+
   dimension: user_id {
     type: number
     sql: ${TABLE}.user_id ;;

@@ -21,6 +21,10 @@ view: inventory_items {
   dimension: product_brand {
     type: string
     sql: ${TABLE}.product_brand ;;
+    link: {
+      label: "Google Search"
+      url: "http://www.google.com/search?q={{ value }}"
+    }
   }
   dimension: product_category {
     type: string
@@ -43,7 +47,12 @@ view: inventory_items {
   dimension: product_name {
     type: string
     sql: ${TABLE}.product_name ;;
+    link: {
+      label: "Google Search"
+      url: "http://www.google.com/search?q={{ value }}"
+      }
   }
+
   dimension: product_retail_price {
     type: number
     sql: ${TABLE}.product_retail_price ;;

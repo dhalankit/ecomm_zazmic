@@ -20,6 +20,27 @@ view: users {
     map_layer_name: countries
     sql: ${TABLE}.country ;;
   }
+
+  dimension: countryflag {
+    type: string
+    sql: ${country};;
+    html:
+    {% if country._value == "United States" %}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_the_United_States_%28DoS_ECA_Color_Standard%29.svg" height="170" width="255">
+    {% elsif country._value == "Spain" %}
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg" height="170" width="255">
+    {% elsif country._value == "China" %}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_the_People%27s_Republic_of_China.svg" height="170" width="255">
+    {% elsif country._value == "Brasil"%}
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" height="170" width="255">
+    {% elsif country._value == "Germany"%}
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" height="170" width="255">
+    {% elsif country._value == "France"%}
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" height="170" width="255">
+    {% else %}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" height="170" width="170">
+    {% endif %} ;;
+  }
   dimension_group: created {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
