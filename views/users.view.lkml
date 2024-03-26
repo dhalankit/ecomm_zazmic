@@ -35,6 +35,12 @@ view: users {
     <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg" height="170" width="255">
     {% elsif country._value == "Germany"%}
     <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" height="170" width="255">
+    {% elsif country._value == "Columbia"%}
+    <img src="https://upload.wikimedia.org/wikipedia/en/4/40/Flag_of_Columbia_County%2C_New_York.svg" height="170" width="255">
+    {% elsif country._value == "Australia"%}
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Flag_of_Australia_%28converted%29.svg" height="170" width="255">
+    {% elsif country._value == "Japan"%}
+    <img src="https://upload.wikimedia.org/wikipedia/en/9/9e/Flag_of_Japan.svg" height="170" width="255">
     {% elsif country._value == "France"%}
     <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg" height="170" width="255">
     {% else %}
