@@ -3,7 +3,7 @@ project_name: "zazmic_ecomm"
 application: explore_assistant {
   label: "Explore Assistant"
   url: "https://localhost:8080/bundle.js"
-  file: "bundle.js"
+  #file: "bundle.js"
   entitlements: {
     core_api_methods: ["lookml_model_explore","create_sql_query","run_sql_query","run_query","create_query"]
     navigation: yes
