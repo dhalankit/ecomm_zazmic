@@ -57,7 +57,11 @@ explore: order_items {
     sql_on: ${events.user_id} = ${order_items.user_id};;
     relationship: many_to_one
   }
-
+join: products {
+  type: left_outer
+  sql_on: ${products.id}= ${order_items.user_id} ;;
+relationship: many_to_one
+}
 
 }
 
